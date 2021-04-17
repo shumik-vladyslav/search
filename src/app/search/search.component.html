@@ -20,16 +20,22 @@
     </div>
   </div>
 </div>
-<div *ngIf="showWrapper === 'list'">
+
+<div class="words_list" *ngIf="showWrapper === 'list'">
   <div>
-    <div *ngFor="let letter of dataStructure[selected]">
+    <p class="descr_par" *ngFor="let letter of dataStructure[selected]">
       {{letter.Name}}
-    </div>
+    </p>
   </div>
 </div>
-<div *ngIf="showWrapper === 'description'">
-  <div>{{selected.Name}}</div>
-  <div>{{selected.Description}}</div>
+
+<div class="description-block_wrap" *ngIf="showWrapper === 'description'">
+  <div class="n_wrap">
+    <p class="decor r_decor"></p>
+    <p class="decor l_decor"></p>
+    <p class="name_par">{{selected.Name}}</p>
+  </div>
+  <p class="descr_par">{{selected.Description}}</p>
 </div>
 
 <div class="g_wrapper">
