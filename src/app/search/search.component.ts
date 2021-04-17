@@ -18,26 +18,14 @@ export class SearchComponent implements OnInit {
 
   constructor(private http: HttpClient, private route:ActivatedRoute,
     private router: Router){
-    this.route.paramMap.subscribe( param => {
-      console.log(param.get('latter'));
-      if(param.get('latter') && !param.get('word')) {
-        this.showWrapper ='list';
-        this.selected = param.get('latter');
-      }
-      if(param.get('latter') && param.get('word')) {
-        this.showWrapper ='description';
 
-      }
-
-
-    })
     this.getData();
   }
 
   selectElement(key, element) {
-    this.selected = element;
-    this.showWrapper = 'description';
-    // this.router.navigate(['search', key, element]);
+    // this.selected = element;
+    // this.showWrapper = 'description';
+    this.router.navigate(['search', key, element.index]);
   }
 
   selectLetter(element) {
@@ -70,9 +58,25 @@ export class SearchComponent implements OnInit {
           if(!this.dataStructure[element.Letter]) {
             this.dataStructure[element.Letter] = []
           }
-          element["index"] = index;
+          element["index"] = this.dataStructure[element.Letter].length;
           this.dataStructure[element.Letter].push(element);
         });
+
+        this.route.paramMap.subscribe( param => {
+          console.log(param.get('latter'));
+          if(param.get('latter') && !param.get('word')) {
+            this.showWrapper ='list';
+            this.selected = param.get('latter');
+          }
+          if(param.get('latter') && param.get('word')) {
+            
+            this.selected = this.dataStructure[param.get('latter')][param.get('word')];
+            console.log(this.dataStructure, this.data,this.selected, this.dataStructure[param.get('latter')],
+            param.get('word'));
+            this.showWrapper ='description';
+            // this.selected = param.get('word');
+          }
+        })
       });
     });
   }
