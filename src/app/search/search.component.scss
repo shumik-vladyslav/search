@@ -58,7 +58,7 @@
   top: 35.5px;
   z-index: 100;
   height: auto;
-  border: dotted 1px #ffe391;
+  border: dotted 1px #cecbc2;
   // background: rgba(255, 227, 145, 0.3);
   background: #fff3c3;
   // border: dotted 1px #ff7200;
@@ -145,6 +145,49 @@
   font-size: 21px;
   color: #000068;
 }
+li.descr_par {
+  margin-bottom: 8px;
+}
 .words_list {
-  margin: 35px;
+  margin: 35px 23px 35px 35px;
+}
+.inp_wrap {
+  margin-left: auto;
+  margin-right: 0;
+  width: fit-content;
+  position: relative;
+}
+.search {
+  position: absolute;
+  background: url(../../assets/search.png) left no-repeat;
+  width: 25px;
+  height: 25px;
+  right: 0px;
+  top: 3px;
+  cursor: pointer;
+}
+.input-general {
+  // background: url(../../assets/search.png) left no-repeat;
+  // background-size: 32px 32px;
+  // background-position: 6px 5px;
+  font-family: "Academy,Serif";
+  background: rgba(255, 227, 145, 0.3);
+  font-size: 20px;
+  padding: 0 30px 0 15px;
+  color: #000068;
+  border: 1px solid #ffd666;
+  width: 250px;
+  height: 30px;
+  border-radius: 6px;
+  // margin: ;
+  // padding: ;
+}
+.input-general:focus {
+  outline: rgba(255, 227, 145, 0.3);
+}
+.input-general::placeholder {
+  font-family: "Academy,Serif";
+  font-size: 20px;
+  color: #000068;
+  // color: #fff;
 }

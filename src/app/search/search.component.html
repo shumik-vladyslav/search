@@ -6,15 +6,14 @@
   <p class="dec right_dec">
     <img src="../assets/strelka_right_shadow.png">
   </p>
-  <div class="dictionary-letter_wrap" *ngFor="let item of dataStructure | keyvalue"
-    (mouseenter)="showLetters(item.key)" (mouseleave)="hideLetters()">
-    <p class="dictionary-target_letter"
-    (click)="selectLetter(item.key)">
+  <div class="dictionary-letter_wrap" *ngFor="let item of dataStructure | keyvalue" (mouseenter)="showLetters(item.key)"
+    (mouseleave)="hideLetters()">
+    <p class="dictionary-target_letter" (click)="selectLetter(item.key)">
       {{item.key}}
     </p>
     <div class="dictionary-word-list_wrap" *ngIf="showLettersFlag && showLetter === item.key">
       <p class="dictionary-target_word" *ngFor="let element of dataStructure[item.key]"
-      (click)="selectElement(item.key, element)">
+        (click)="selectElement(item.key, element)">
         {{element.Name}}
       </p>
     </div>
@@ -22,10 +21,16 @@
 </div>
 
 <div class="words_list" *ngIf="showWrapper === 'list'">
+  <div class="inp_wrap">
+    <p class="search"></p>
+    <input class="input-general" type="text" placeholder="Введите термин">
+  </div>
   <div>
-    <p class="descr_par" *ngFor="let letter of dataStructure[selected]">
-      {{letter.Name}}
-    </p>
+    <ul>
+      <li class="descr_par" *ngFor="let letter of dataStructure[selected]">
+        <a href="#">{{letter.Name}}</a>
+      </li>
+    </ul>
   </div>
 </div>
 
@@ -39,5 +44,5 @@
 </div>
 
 <div class="g_wrapper">
-    <div class="gerb_wrap"></div>
+  <div class="gerb_wrap"></div>
 </div>
