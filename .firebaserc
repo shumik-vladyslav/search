@@ -1,0 +1,14 @@
+{
+  "projects": {
+    "default": "dharmasearch-3b908"
+  },
+  "targets": {
+    "dharmasearch-3b908": {
+      "hosting": {
+        "search": [
+          "dharmasearch-3b908"
+        ]
+      }
+    }
+  }
+}
