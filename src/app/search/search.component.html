@@ -28,7 +28,7 @@
   <div>
     <ul>
       <li class="descr_par" *ngFor="let letter of dataStructure[selected]">
-        <a href="#">{{letter.Name}}</a>
+        <a (click)="selectElement(selected, letter)">{{letter.Name}}</a>
       </li>
     </ul>
   </div>
