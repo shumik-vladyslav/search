@@ -15,6 +15,7 @@ export class SearchComponent implements OnInit {
   selected;
   showLetter;
   showWrapper;
+  model = {query:""};
 
   constructor(private http: HttpClient, private route:ActivatedRoute,
     private router: Router){

@@ -25,11 +25,12 @@
 <div class="words_list" *ngIf="showWrapper === 'list'">
   <div class="inp_wrap">
     <p class="search"></p>
-    <input class="input-general" type="text" placeholder="Введите термин">
+    <input class="input-general" type="text" placeholder="Введите термин" [(ngModel)]="model.query">
   </div>
   <div>
     <ul>
-      <li class="descr_par" *ngFor="let letter of dataStructure[selected]">
+        {{query}}
+      <li class="descr_par" *ngFor="let letter of dataStructure[selected] | LockFilter: model.query">
         <div>{{letter.Name}}</div>
         <!-- <a (click)="selectElement(selected, letter)">{{letter.Name}}</a> -->
       </li>
