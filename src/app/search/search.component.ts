@@ -52,31 +52,48 @@ export class SearchComponent implements OnInit {
       xlsxParser
       .onFileSelection(res)
       .then(data => {
-        this.data = data.Sheet1;
+        this.data = data['Лист1'];
         console.log(this.data);
         this.data.forEach((element, index) => {
-          if(!this.dataStructure[element.Letter]) {
-            this.dataStructure[element.Letter] = []
+          if(element.list && element.list.length === 1){
+            this.dataStructure[element.list] = [];
+          } else {
+            let letter = element.list.charAt(0).toUpperCase();
+            if(!this.dataStructure[letter]) {
+              this.dataStructure[letter] = [];
+            }
+            element["index"] = this.dataStructure[letter].length;
+            this.dataStructure[letter].push(element);
           }
-          element["index"] = this.dataStructure[element.Letter].length;
-          this.dataStructure[element.Letter].push(element);
         });
+        console.log(this.dataStructure);
 
-        this.route.paramMap.subscribe( param => {
-          console.log(param.get('latter'));
-          if(param.get('latter') && !param.get('word')) {
-            this.showWrapper ='list';
-            this.selected = param.get('latter');
-          }
-          if(param.get('latter') && param.get('word')) {
+
+        // this.data = data.Sheet1;
+        // console.log(this.data);
+        // this.data.forEach((element, index) => {
+        //   if(!this.dataStructure[element.Letter]) {
+        //     this.dataStructure[element.Letter] = []
+        //   }
+        //   element["index"] = this.dataStructure[element.Letter].length;
+        //   this.dataStructure[element.Letter].push(element);
+        // });
+
+        // this.route.paramMap.subscribe( param => {
+        //   console.log(param.get('latter'));
+        //   if(param.get('latter') && !param.get('word')) {
+        //     this.showWrapper ='list';
+        //     this.selected = param.get('latter');
+        //   }
+        //   if(param.get('latter') && param.get('word')) {
             
-            this.selected = this.dataStructure[param.get('latter')][param.get('word')];
-            console.log(this.dataStructure, this.data,this.selected, this.dataStructure[param.get('latter')],
-            param.get('word'));
-            this.showWrapper ='description';
-            // this.selected = param.get('word');
-          }
-        })
+        //     this.selected = this.dataStructure[param.get('latter')][param.get('word')];
+        //     console.log(this.dataStructure, this.data,this.selected, this.dataStructure[param.get('latter')],
+        //     param.get('word'));
+        //     this.showWrapper ='description';
+        //     // this.selected = param.get('word');
+        //   }
+        // })
       });
     });
   }

@@ -1,4 +1,4 @@
-<h1 class="main_text">Словарь Ведических терминов</h1>
+<h1 class="main_text">Словарь ведических терминов</h1>
 <div class="horizontal-multilevel-menu_wrap">
   <p class="dec left_dec">
     <img src="../assets/strelka_left_shadow.png">
@@ -14,7 +14,7 @@
     <div class="dictionary-word-list_wrap" *ngIf="showLettersFlag && showLetter === item.key">
       <p class="dictionary-target_word" *ngFor="let element of dataStructure[item.key]"
         (click)="selectElement(item.key, element)">
-        {{element.Name}}
+        {{element.list}}
       </p>
     </div>
   </div>
@@ -43,6 +43,6 @@
   <p class="descr_par">{{selected.Description}}</p>
 </div>
 
-<div class="g_wrapper">
+<!-- <div class="g_wrapper">
   <div class="gerb_wrap"></div>
-</div>
+</div> -->
