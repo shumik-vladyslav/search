@@ -55,10 +55,10 @@ export class SearchComponent implements OnInit {
         this.data = data['Лист1'];
         console.log(this.data);
         this.data.forEach((element, index) => {
-          if(element.list && element.list.length === 1){
-            this.dataStructure[element.list] = [];
+          if(element.Name && element.Name.length === 1){
+            this.dataStructure[element.Name] = [];
           } else {
-            let letter = element.list.charAt(0).toUpperCase();
+            let letter = element.Name.charAt(0).toUpperCase();
             if(!this.dataStructure[letter]) {
               this.dataStructure[letter] = [];
             }
@@ -79,21 +79,21 @@ export class SearchComponent implements OnInit {
         //   this.dataStructure[element.Letter].push(element);
         // });
 
-        // this.route.paramMap.subscribe( param => {
-        //   console.log(param.get('latter'));
-        //   if(param.get('latter') && !param.get('word')) {
-        //     this.showWrapper ='list';
-        //     this.selected = param.get('latter');
-        //   }
-        //   if(param.get('latter') && param.get('word')) {
+        this.route.paramMap.subscribe( param => {
+          console.log(param.get('latter'));
+          if(param.get('latter') && !param.get('word')) {
+            this.showWrapper ='list';
+            this.selected = param.get('latter');
+          }
+          if(param.get('latter') && param.get('word')) {
             
-        //     this.selected = this.dataStructure[param.get('latter')][param.get('word')];
-        //     console.log(this.dataStructure, this.data,this.selected, this.dataStructure[param.get('latter')],
-        //     param.get('word'));
-        //     this.showWrapper ='description';
-        //     // this.selected = param.get('word');
-        //   }
-        // })
+            this.selected = this.dataStructure[param.get('latter')][param.get('word')];
+            console.log(this.dataStructure, this.data,this.selected, this.dataStructure[param.get('latter')],
+            param.get('word'));
+            this.showWrapper ='description';
+            // this.selected = param.get('word');
+          }
+        })
       });
     });
   }

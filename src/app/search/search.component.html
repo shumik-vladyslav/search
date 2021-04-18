@@ -13,8 +13,9 @@
     </p>
     <div class="dictionary-word-list_wrap" *ngIf="showLettersFlag && showLetter === item.key">
       <p class="dictionary-target_word" *ngFor="let element of dataStructure[item.key]"
-        (click)="selectElement(item.key, element)">
-        {{element.list}}
+        (click)="selectElement(item.key, element)"
+        >
+        {{element.Name}}
       </p>
     </div>
   </div>
@@ -28,7 +29,8 @@
   <div>
     <ul>
       <li class="descr_par" *ngFor="let letter of dataStructure[selected]">
-        <a (click)="selectElement(selected, letter)">{{letter.Name}}</a>
+        <div >{{letter.Name}}</div>
+        <!-- <a (click)="selectElement(selected, letter)">{{letter.Name}}</a> -->
       </li>
     </ul>
   </div>
