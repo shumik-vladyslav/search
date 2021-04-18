@@ -16,7 +16,10 @@
   font-weight: normal;
   font-style: normal;
 }
-
+.hor_wrapper {
+  display: flex;
+  justify-content: center;
+}
 .horizontal-multilevel-menu_wrap {
   position: relative;
   display: flex;
@@ -27,7 +30,7 @@
   padding: 0;
   background: url(../../assets/5_.png);
   min-height: 27px;
-  width: auto;
+  width: fit-content;
   line-height: 21px;
 }
 .dictionary-letter_wrap {
@@ -54,28 +57,38 @@
 }
 .dictionary-word-list_wrap {
   position: absolute;
-  width: 147px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  // flex-wrap: wrap-reverse;
+  width: auto;
+  // min-width: 180px;
   top: 35.5px;
   z-index: 100;
   height: auto;
-  border: dotted 1px #cecbc2;
+  // border: dotted 1px #cecbc2;
   // background: rgba(255, 227, 145, 0.3);
   background: #fff3c3;
   // border: dotted 1px #ff7200;
   // border: 1px solid #263780;
   border-radius: 5px;
+  max-height: 500px;
 }
 .dictionary-target_word {
   // width: 100%;
   // border-bottom: 1px solid #dedede;
+  background: #fff3c3;
   display: block;
   padding: 5px 10px;
   box-sizing: border-box;
   color: #000068;
   font-family: "Academy,Serif";
+  border: dotted 1px #cecbc2;
+  // width: fit-content;
 }
 .dictionary-target_word:hover {
-  background: rgba(255, 227, 145, 0.3);
+  color: #2222ca;
+  // background: rgba(255, 227, 145, 0.3);
 }
 .dec {
   position: absolute;

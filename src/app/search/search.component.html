@@ -1,22 +1,23 @@
 <h1 class="main_text">Словарь ведических терминов</h1>
-<div class="horizontal-multilevel-menu_wrap">
-  <p class="dec left_dec">
-    <img src="../assets/strelka_left_shadow.png">
-  </p>
-  <p class="dec right_dec">
-    <img src="../assets/strelka_right_shadow.png">
-  </p>
-  <div class="dictionary-letter_wrap" *ngFor="let item of dataStructure | keyvalue" (mouseenter)="showLetters(item.key)"
-    (mouseleave)="hideLetters()">
-    <p class="dictionary-target_letter" (click)="selectLetter(item.key)">
-      {{item.key}}
+<div class="hor_wrapper">
+  <div class="horizontal-multilevel-menu_wrap">
+    <p class="dec left_dec">
+      <img src="../assets/strelka_left_shadow.png">
     </p>
-    <div class="dictionary-word-list_wrap" *ngIf="showLettersFlag && showLetter === item.key">
-      <p class="dictionary-target_word" *ngFor="let element of dataStructure[item.key]"
-        (click)="selectElement(item.key, element)"
-        >
-        {{element.Name}}
+    <p class="dec right_dec">
+      <img src="../assets/strelka_right_shadow.png">
+    </p>
+    <div class="dictionary-letter_wrap" *ngFor="let item of dataStructure | keyvalue"
+      (mouseenter)="showLetters(item.key)" (mouseleave)="hideLetters()">
+      <p class="dictionary-target_letter" (click)="selectLetter(item.key)">
+        {{item.key}}
       </p>
+      <div class="dictionary-word-list_wrap" *ngIf="showLettersFlag && showLetter === item.key">
+        <p class="dictionary-target_word" *ngFor="let element of dataStructure[item.key]"
+          (click)="selectElement(item.key, element)">
+          {{element.Name}}
+        </p>
+      </div>
     </div>
   </div>
 </div>
@@ -29,7 +30,7 @@
   <div>
     <ul>
       <li class="descr_par" *ngFor="let letter of dataStructure[selected]">
-        <div >{{letter.Name}}</div>
+        <div>{{letter.Name}}</div>
         <!-- <a (click)="selectElement(selected, letter)">{{letter.Name}}</a> -->
       </li>
     </ul>
